@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>TODO APP</h1>
+<form action="/add" method = "POST">
+    <label> Enter Title </label>
+    <input type="text" name="title" placeholder = "Enter Todo...">
+    <br>
+    <button type="submit">ADD</button>
+    {% for todo in tasks %}
+        <p> {{ todo[0] }}  |   {{ todo[1] }}</p>
+        {% if todo[2] == False %}
+        <span>Not Complete</span>
+        {% else %}
+        <span>Complete</span>
+        {% endif %}
+
+        <a href = "/update/{{ todo[0] }}" > Update</a>
+        <a href = "/delete/{{ todo[0] }}" > Delete</a>
+
+    {% endfor %}
+
+
+</form>
+
+</body>
+</html>
